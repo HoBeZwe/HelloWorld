@@ -15,4 +15,12 @@ TEST(HelloTest, BasicAssertionsB) { EXPECT_EQ(7 * 6, 42); }
 
 TEST(XTest, Huhu) { EXPECT_EQ(7 * 6, 42); }
 
+TEST(Parallel, Exist) {
+  bool expr = false;
+#ifdef _OPENMP
+  expr = true;
+#endif
+  ASSERT_TRUE(expr);
+}
+
 }  // namespace

@@ -7,7 +7,6 @@ add_executable (HelloExe "")
 target_sources (HelloExe
 	PRIVATE
 		main.cpp
-		main.h
 	)
 
 #target_sources (HelloExe
