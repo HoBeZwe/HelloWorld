@@ -1,5 +1,5 @@
 
-#include "src/main.h"
+#include "/home/bernd/Nextcloud/Wissenschaft/Forschung/Codes_NFFFT/HelloWorld/src/main.h"
 
 #include <iostream>
 #include <string>
