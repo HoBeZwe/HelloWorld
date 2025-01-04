@@ -1,0 +1,5 @@
+
+Checks: -*, clang-analyzer-core.*, clang-analyzer-cplusplus.*, performance-*, cppcoreguidelines-*, modernize-*, readability-*, bugprone-*, google-*
+
+Disable: ['cppcoreguidelines-pro-bounds-pointer-arithmetic']
+
