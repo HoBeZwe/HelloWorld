@@ -2,3 +2,6 @@
 name: Documentation
 on: [push, pull_request]
 jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
