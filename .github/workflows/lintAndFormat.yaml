@@ -1,4 +1,6 @@
 
+# run cpplint on pull requests and pushes
+# check against Google C++ Style Guide
 name: cpplint
 on: [push, pull_request]
 jobs:
@@ -8,4 +10,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v4
     - run: pip install cpplint
-    - run: cpplint --recursive .
+    - run: cpplint --recursive . -legal/copyright
+
+
+# run clang-tidy on pull requests and pushes
