@@ -31,7 +31,7 @@ jobs:
       run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -DProject_ENABLE_CODE_COVERAGE=1
       
     - name: build
-      run: cmake --build build --config $BUILD_TYPE -j4
+      run: cmake --build build --config $BUILD_TYPE -j4 -DCMAKE_CXX_FLAGS=-fopenmp -fpic
 
     - name: run tests
       run: |
