@@ -47,7 +47,10 @@ set(
 
 FetchContent_MakeAvailable(googletest)
 
+include(CTest)
 include(GoogleTest)
 enable_testing()
 
 add_subdirectory(test)
+
+# add_clang_format_target()

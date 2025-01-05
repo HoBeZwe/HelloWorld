@@ -13,7 +13,11 @@ TEST(HelloTest, BasicAssertionsA) {
   EXPECT_EQ(7 * 6, 42);
 }
 
-TEST(HelloTest, BasicAssertionsB) { EXPECT_EQ(7 * 6, 42); }
+// cppcheck-suppress syntaxError
+TEST(HelloTest, BasicAssertionsB) {
+  EXPECT_EQ(7 * 6, 42);
+  EXPECT_EQ(7 * 6, 42);
+}
 
 TEST(XTest, Huhu) { EXPECT_EQ(7 * 6, 42); }
 

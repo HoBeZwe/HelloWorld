@@ -19,5 +19,9 @@ target_include_directories(
     PUBLIC ../src
     )
 
+# target_compile_options( hello_test PUBLIC -O0 -g -fprofile-arcs -ftest-coverage )
+
+# target_link_options( hello_test PUBLIC -fprofile-arcs -ftest-coverage )
+
 include(GoogleTest)
 gtest_discover_tests(hello_test)
