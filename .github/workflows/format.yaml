@@ -16,18 +16,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - uses: actions/cache@v3
+      - uses: actions/checkout@v4
+      - uses: cpp-linter/cpp-linter-action@v2
+        id: linter
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          path: "**/cpm_modules"
-          key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
-
-      - name: Install format dependencies
-        run: pip3 install clang-format==14.0.6 cmake_format==0.6.11 pyyaml
-
-      - name: configure
-        run: cmake -Stest -Bbuild
-
-      - name: check style
-        run: cmake --build build --target check-format
+          style: '.clang-format'  # Use .clang-format config file
+          tidy-checks: '.clang-tidy' # Use .clang-tidy config file
+          # only 'update' a single comment in a pull request thread.
+          thread-comments: ${{ github.event_name == 'pull_request' && 'update' }}
+      - name: Fail fast?!
+        if: steps.linter.outputs.checks-failed > 0
+        run: exit 1

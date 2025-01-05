@@ -12,3 +12,6 @@ jobs:
       - uses: JustEnoughMod/DoxygenDeployAction@v1.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: build/html
+          config_file: docs/Doxyfile
