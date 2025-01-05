@@ -1,6 +1,8 @@
 
 #include <gtest/gtest.h>
 
+#include "doStuff/do.h"
+
 namespace {
 
 // Demonstrate some basic assertions.
@@ -21,6 +23,12 @@ TEST(Parallel, Exist) {
   expr = true;
 #endif
   ASSERT_TRUE(expr);
+}
+
+TEST(Library, works) {
+  int ret = doStuff();
+
+  EXPECT_EQ(ret, 0);
 }
 
 }  // namespace
