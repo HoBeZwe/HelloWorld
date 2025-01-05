@@ -1,6 +1,6 @@
 
 # check cmake-format and cmake-format on pull requests and pushes
-name: Style
+name: clang-tidy
 
 on:
   push:
