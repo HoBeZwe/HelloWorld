@@ -74,7 +74,7 @@ PROJECT_ICON           =
 # entered, it will be relative to the location where Doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = ../build/
+OUTPUT_DIRECTORY       = build
 
 # If the CREATE_SUBDIRS tag is set to YES then Doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -1177,7 +1177,7 @@ FILTER_SOURCE_PATTERNS =
 # (index.html). This can be useful if you have a project on for instance GitHub
 # and want to reuse the introduction page also for the Doxygen output.
 
-USE_MDFILE_AS_MAINPAGE = pages/about.md
+USE_MDFILE_AS_MAINPAGE = docs/pages/about.md
 
 # The Fortran standard specifies that for fixed formatted Fortran code all
 # characters from position 72 are to be considered as comment. A common
@@ -1417,9 +1417,9 @@ HTML_STYLESHEET        =
 # documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_EXTRA_STYLESHEET  = /home/bernd/Nextcloud/Wissenschaft/Forschung/Codes_NFFFT/HelloWorld/build/_deps/doxygen-awesome-css-src/doxygen-awesome.css \
-                         custom.css
-                         #/home/bernd/Nextcloud/Wissenschaft/Forschung/Codes_NFFFT/HelloWorld/build/_deps/doxygen-awesome-css-src/doxygen-awesome-sidebar-only.css
+HTML_EXTRA_STYLESHEET = docs/custom.css
+                        #/home/bernd/Nextcloud/Wissenschaft/Forschung/Codes_NFFFT/HelloWorld/build/_deps/doxygen-awesome-css-src/doxygen-awesome.css \
+                        #/home/bernd/Nextcloud/Wissenschaft/Forschung/Codes_NFFFT/HelloWorld/build/_deps/doxygen-awesome-css-src/doxygen-awesome-sidebar-only.css
 
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
 # other source files which should be copied to the HTML output directory. Note
