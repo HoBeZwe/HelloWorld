@@ -30,7 +30,7 @@ jobs:
         key: ${{ runner.os }}-dependencies
 
     - name: configure
-      run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -DProject_ENABLE_CODE_COVERAGE=1 -DCMAKE_CXX_FLAGS=-fopenmp -fprofile-arcs -ftest-coverage -DCMAKE_EXE_LINKER_FLAGS=--coverage
+      run: cmake -Bbuild -DCMAKE_CXX_FLAGS=-fopenmp -fprofile-arcs -ftest-coverage -DCMAKE_EXE_LINKER_FLAGS=--coverage
       
     - name: build
       run: cmake --build build --config $BUILD_TYPE -j4
