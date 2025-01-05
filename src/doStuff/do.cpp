@@ -21,6 +21,11 @@ const int ver51 = 202011;
 const int ver52 = 202111;
 const int ver60 = 202411;
 
+/**
+    \brief Do all the work.
+
+    \callgraph
+*/
 int doStuff() {
   int aux = 2;
   aux += 2;
