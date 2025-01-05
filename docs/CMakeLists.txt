@@ -16,9 +16,6 @@ set(
     DOXYFILE_OUT
     ${CMAKE_CURRENT_SOURCE_DIR}/../Doxyfile
     )
-configure_file(
-    ${DOXYFILE_OUT}
-    @ONLY
-    )
+# configure_file( ${DOXYFILE_OUT} @ONLY )
 
 message(STATUS "Doxygen Awesome CSS directory: ${AWESOME_CSS_DIR}")
