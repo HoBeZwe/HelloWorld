@@ -10,6 +10,8 @@ on:
 env:
   BUILD_TYPE: Release
   INSTALL_LOCATION: .local
+  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  CPM_SOURCE_CACHE: ${{ github.workspace }}/cpm_modules
 
 jobs:
   build:
