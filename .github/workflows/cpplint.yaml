@@ -11,6 +11,3 @@ jobs:
     - uses: actions/setup-python@v4
     - run: pip install cpplint
     - run: cpplint --recursive . 
-
-
-# run clang-tidy on pull requests and pushes
