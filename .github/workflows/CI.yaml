@@ -11,6 +11,7 @@ env:
   CTEST_OUTPUT_ON_FAILURE: 1
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   CPM_SOURCE_CACHE: ${{ github.workspace }}/cpm_modules
+  BUILD_TYPE: Release
 
 jobs:
   build:
@@ -41,6 +42,3 @@ jobs:
 
     - name: Code coverage using Codecov 
       run: bash <(curl -s https://codecov.io/bash) 
-
-    - name: install project
-      run: cmake --build build --target install --config Release 
