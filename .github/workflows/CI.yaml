@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+    - uses: actions/checkout@v4
+
     - name: configure & run cmake
       run: |
         cmake -Bbuild -DCMAKE_CXX_FLAGS="-fopenmp -fprofile-arcs -ftest-coverage"
