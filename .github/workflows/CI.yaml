@@ -39,12 +39,6 @@ jobs:
       run: |
         cd build
         ctest -C $BUILD_TYPE -VV
-
-    - name: lcov
-      uses: danielealbano/lcov-action@v4.1
-      with:
-        gcov_path: /usr/bin/gcov-9
-        remove_patterns: 3rdparty,tests
     
     - name: Report build tool versions
       shell: bash
