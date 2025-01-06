@@ -47,6 +47,7 @@ jobs:
       shell: bash
       run: |
         echo "lcov version: $(lcov --version)"
+        ls -l ${{github.workspace}}
 
     - name: Code Coverage - Generation
       run: |
