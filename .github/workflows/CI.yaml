@@ -37,7 +37,7 @@ jobs:
 
     - name: run tests
       run: |
-        cd build
+        cd ${{github.workspace}}/build
         ctest -C $BUILD_TYPE -VV
     
     - name: Install required dependencies
@@ -50,11 +50,11 @@ jobs:
 
     - name: Code Coverage - Generation
       run: |
-        cd ${{github.workspace}}
+        cd ${{github.workspace}}/build
         lcov --no-external --capture --directory . --ignore mismatch --rc geninfo_unexecuted_blocks=1 --ignore-errors inconsistent --output-file coverage.info
 
     - uses: codecov/codecov-action@v4
       with:
-        files: ${{github.workspace}}/coverage.info
+        files: ${{github.workspace}}/build/coverage.info
         fail_ci_if_error: true
         verbose: true
