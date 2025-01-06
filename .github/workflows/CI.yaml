@@ -45,6 +45,18 @@ jobs:
       with:
         gcov_path: /usr/bin/gcov-9
         remove_patterns: 3rdparty,tests
+    
+    - name: Report build tool versions
+      shell: bash
+      run: |
+        echo "lcov version: $(lcov --version)"
+
+    - name: Code Coverage - Generation
+      run: |
+        cd ${{github.workspace}}/build
+        lcov --gcov-tool ${{matrix.config.gcov}} --capture --directory . --exclude catch2 --output-file coverage.info
+        lcov --gcov-tool ${{matrix.config.gcov}} --remove coverage.info '3rdparty/*' 'tests/*' '/usr/*' '_deps/*' --output-file coverage.info
+        lcov --gcov-tool ${{matrix.config.gcov}} --list coverage.info
 
     - uses: codecov/codecov-action@v4
       with:
