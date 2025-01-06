@@ -47,7 +47,7 @@ jobs:
       shell: bash
       run: |
         echo "lcov version: $(lcov --version)"
-        ls -l ${{github.workspace}}/build
+        ls -l ${{github.workspace}}/build/test/CMakeFiles/hello_test.dir
 
     - name: Code Coverage - Generation
       run: |
