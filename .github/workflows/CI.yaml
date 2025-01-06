@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: configure
-      run: cmake -Bbuild -DCMAKE_CXX_FLAGS=-fopenmp -fprofile-arcs -ftest-coverage
+      run: cmake -Bbuild -DCMAKE_CXX_FLAGS="-fopenmp -fprofile-arcs -ftest-coverage"
       
     - name: build
       run: cmake --build build --config $BUILD_TYPE -j4
