@@ -10,43 +10,31 @@ on:
 env:
   CTEST_OUTPUT_ON_FAILURE: 1
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-  CPM_SOURCE_CACHE: ${{ github.workspace }}/cpm_modules
   BUILD_TYPE: Release
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
 
-    - name: configure
-      run: cmake -Bbuild -DCMAKE_CXX_FLAGS="-fopenmp -fprofile-arcs -ftest-coverage"
-      
-    - name: build
-      run: cmake --build build --config $BUILD_TYPE -j4
+    - name: configure & run cmake
+      run: |
+        cmake -Bbuild -DCMAKE_CXX_FLAGS="-fopenmp -fprofile-arcs -ftest-coverage"
+        cmake --build build --config $BUILD_TYPE -j4
 
     - name: run tests
       run: |
         cd ${{github.workspace}}/build
         ctest -C $BUILD_TYPE -VV
     
-    - name: Install required dependencies
-      run: sudo apt-get update && sudo apt-get install -y lcov
-
-    - name: Report build tool versions
-      shell: bash
-      run: |
-        echo "lcov version: $(lcov --version)"
-        tree ${{github.workspace}}
-
-    - name: Code Coverage - Generation
-      run: |
+    - name: install & run lcov
+      run: | 
+        sudo apt-get update && sudo apt-get install -y lcov
         cd ${{github.workspace}}
         lcov --no-external --capture --directory . --ignore mismatch --rc geninfo_unexecuted_blocks=1 --ignore-errors inconsistent --output-file coverage.info
 
-    - uses: codecov/codecov-action@v4
+    - name: push on codecov
+      uses: codecov/codecov-action@v4
       with:
         files: ${{github.workspace}}/coverage.info
         fail_ci_if_error: true
