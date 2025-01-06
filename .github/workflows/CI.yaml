@@ -40,6 +40,9 @@ jobs:
         cd build
         ctest -C $BUILD_TYPE -VV
     
+    - name: Install required dependencies
+      run: sudo apt-get update && sudo apt-get install -y lcov
+
     - name: Report build tool versions
       shell: bash
       run: |
