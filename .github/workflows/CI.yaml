@@ -51,9 +51,7 @@ jobs:
     - name: Code Coverage - Generation
       run: |
         cd ${{github.workspace}}/build
-        lcov --gcov-tool ${{matrix.config.gcov}} --capture --directory . --exclude catch2 --output-file coverage.info
-        lcov --gcov-tool ${{matrix.config.gcov}} --remove coverage.info '3rdparty/*' 'tests/*' '/usr/*' '_deps/*' --output-file coverage.info
-        lcov --gcov-tool ${{matrix.config.gcov}} --list coverage.info
+        lcov --no-external --capture --directory . --ignore mismatch --rc geninfo_unexecuted_blocks=1 --ignore-errors inconsistent --output-file coverage.info
 
     - uses: codecov/codecov-action@v4
       with:
