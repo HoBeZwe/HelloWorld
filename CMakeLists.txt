@@ -52,6 +52,3 @@ include(GoogleTest)
 enable_testing()
 
 add_subdirectory(test)
-add_subdirectory(docs)
-
-# add_clang_format_target()
