@@ -47,15 +47,15 @@ jobs:
       shell: bash
       run: |
         echo "lcov version: $(lcov --version)"
-        ls -l ${{github.workspace}}
+        ls -l ${{github.workspace}}/build
 
     - name: Code Coverage - Generation
       run: |
-        cd ${{github.workspace}}/build
+        cd ${{github.workspace}}
         lcov --no-external --capture --directory . --ignore mismatch --rc geninfo_unexecuted_blocks=1 --ignore-errors inconsistent --output-file coverage.info
 
     - uses: codecov/codecov-action@v4
       with:
-        files: ${{github.workspace}}/build/coverage.info
+        files: ${{github.workspace}}/coverage.info
         fail_ci_if_error: true
         verbose: true
